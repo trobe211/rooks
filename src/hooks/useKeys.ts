@@ -90,7 +90,11 @@ function useKeys(
          * disable identifier immediately
          */
         if (!continuous && pressedKeyIdentifier !== null) {
-          PressedKeyMapping[pressedKeyIdentifier] = false;
+          for (const key in PressedKeyMapping) {
+            if (PressedKeyMapping.hasOwnProperty(key)) {
+              PressedKeyMapping[key] = false;
+            }
+          }
         }
       }
     },
